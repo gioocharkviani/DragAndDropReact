@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  gap:10px;
+}
+
+.dragging-task {
+  background: #ffff;
+}
+
+.CurrentTask {
+  background: #d8e3f6;
+  opacity: 0;
+}
+
+
+
+
