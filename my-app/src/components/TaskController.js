@@ -27,9 +27,8 @@ function DragNDrop({data}) {
         },0)       
     }
     const handleDragEnter = (e, targetItem) => {
-        console.log('Entering a drag target', targetItem)
+        console.log(dragItemNode)
         if (dragItemNode.current !== e.target) {
-            console.log('Target is NOT the same as dragged item')
             setList(oldList => {
                 let newList = JSON.parse(JSON.stringify(oldList))
                 newList[targetItem.grpI].items.splice(targetItem.itemI, 0, newList[dragItem.current.grpI].items.splice(dragItem.current.itemI,1)[0])
@@ -39,12 +38,14 @@ function DragNDrop({data}) {
             })
         }
     }
+    
     const handleDragEnd = (e) => {
         setDragging(false);
         dragItem.current = null;
         dragItemNode.current.removeEventListener('dragend', handleDragEnd)
         dragItemNode.current = null;
     }
+
     const getStyles = (item) => {
         if (dragItem.current.grpI === item.grpI && dragItem.current.itemI === item.itemI) {
             return "CurrentTask"
